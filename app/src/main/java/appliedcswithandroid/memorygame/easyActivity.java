@@ -5,11 +5,14 @@ import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+
 
 /**
  * Created by BillyWu on 5/6/17.
@@ -17,6 +20,8 @@ import java.io.InputStreamReader;
 
 public class easyActivity extends Activity{
     private MemoryGame wordContainer;
+    String wordToMemorize = "";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -31,6 +36,34 @@ public class easyActivity extends Activity{
             Toast toast = Toast.makeText(this, "Could not load file", Toast.LENGTH_LONG);
             toast.show();
         }
+    }
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+        wordToMemorize = wordContainer.chooseRandomEasy();
+        final TextView textView = (TextView) findViewById(R.id.textView);
+        textView.setText(wordToMemorize);
+        //source: http://stackoverflow.com/questions/22194761/hide-textview-after-some-time-in-android
+        textView.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                textView.setVisibility(View.INVISIBLE);
+            }
+        }, 3000); //set visibility for 3 seconds
+
+
+    }
+
+    public void checkWord(View view){
+        EditText editText = (EditText) findViewById(R.id.editText1);
+        editText.setFocusable(false); //source: http://stackoverflow.com/questions/4297763/disabling-of-edittext-in-android
+        String userInput = editText.getText().toString();
+        System.out.println("This is the user input: " + userInput);
+        if(wordToMemorize.equals(userInput)){
+            System.out.println("Congratulations, you got the word correct!!!");
+        }
+
     }
 
     //back to homepage

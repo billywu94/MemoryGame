@@ -26,9 +26,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, easyActivity.class));
     }
 
-    public void intermediateLevel(View view){
-        startActivity(new Intent(this, intermediateLevel.class));
-    }
+    public void intermediateLevel(View view){ startActivity(new Intent(this, intermediateLevel.class)); }
 
     public void difficultLevel(View view){
         startActivity(new Intent(this, difficultLevel.class));

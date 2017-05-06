@@ -5,5 +5,8 @@
     <string name="easy">Easy</string>
     <string name="intermediate">Intermediate</string>
     <string name="hard">Hard</string>
+    <string name="word">Word</string>
+    <string name="submit">Submit</string>
+    <string name="prompt">Enter the word as appears on the screen</string>
 
 </resources>
