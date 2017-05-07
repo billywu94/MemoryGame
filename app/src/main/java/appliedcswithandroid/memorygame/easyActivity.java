@@ -3,6 +3,7 @@ package appliedcswithandroid.memorygame;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.AssetManager;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -54,6 +55,12 @@ public class easyActivity extends Activity{
 
 
     }
+    //setting background color
+    //source: http://stackoverflow.com/questions/8961071/android-changing-background-color-of-the-activity-main-view
+    public void setActivityBackgroundColor(int color){
+        View view = this.getWindow().getDecorView();
+        view.setBackgroundColor(color);
+    }
 
     public void checkWord(View view){
         EditText editText = (EditText) findViewById(R.id.editText1);
@@ -61,7 +68,11 @@ public class easyActivity extends Activity{
         String userInput = editText.getText().toString();
         System.out.println("This is the user input: " + userInput);
         if(wordToMemorize.equals(userInput)){
-            System.out.println("Congratulations, you got the word correct!!!");
+            setActivityBackgroundColor(Color.GREEN);
+            Toast.makeText(this,"Congratulations, you got the word correct!!!", Toast.LENGTH_SHORT).show();
+        }else{
+            setActivityBackgroundColor(Color.RED);
+            Toast.makeText(this,"Sorry, the word you entered was incorrect.", Toast.LENGTH_SHORT).show();
         }
 
     }
