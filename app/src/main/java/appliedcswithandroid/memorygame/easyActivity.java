@@ -6,6 +6,7 @@ import android.content.res.AssetManager;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,10 +43,15 @@ public class easyActivity extends Activity{
     @Override
     protected void onStart(){
         super.onStart();
+        randomWordToMemorize();
+    }
+
+    public void randomWordToMemorize(){
         wordToMemorize = wordContainer.chooseRandomEasy();
         final TextView textView = (TextView) findViewById(R.id.textView);
         textView.setText(wordToMemorize);
         //source: http://stackoverflow.com/questions/22194761/hide-textview-after-some-time-in-android
+        //http://stackoverflow.com/questions/8177830/hide-a-layout-after-10-seconds-in-android
         textView.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -63,17 +69,33 @@ public class easyActivity extends Activity{
     }
 
     public void checkWord(View view){
+        Button button = (Button) findViewById(R.id.button6);
         EditText editText = (EditText) findViewById(R.id.editText1);
         editText.setFocusable(false); //source: http://stackoverflow.com/questions/4297763/disabling-of-edittext-in-android
         String userInput = editText.getText().toString();
         System.out.println("This is the user input: " + userInput);
         if(wordToMemorize.equals(userInput)){
+            button.setEnabled(false);
             setActivityBackgroundColor(Color.GREEN);
             Toast.makeText(this,"Congratulations, you got the word correct!!!", Toast.LENGTH_SHORT).show();
         }else{
+            button.setEnabled(false);
             setActivityBackgroundColor(Color.RED);
             Toast.makeText(this,"Sorry, the word you entered was incorrect.", Toast.LENGTH_SHORT).show();
         }
+
+    }
+
+    public void nextWord(View view){
+        setActivityBackgroundColor(Color.parseColor("#EEEEEE"));
+        TextView textView = (TextView) findViewById(R.id.textView);
+        textView.setVisibility(View.VISIBLE);
+        randomWordToMemorize();
+        EditText editText = (EditText) findViewById(R.id.editText1);
+        editText.setText("");
+        editText.setFocusableInTouchMode(true);
+        Button button = (Button) findViewById(R.id.button6);
+        button.setEnabled(true);
 
     }
 
