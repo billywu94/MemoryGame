@@ -7,8 +7,6 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,6 +23,12 @@ import com.google.firebase.auth.FirebaseUser;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+
+/*
+    Firebase references : https://firebase.google.com/docs/database/android/start/
+    https://firebase.google.com/docs/database/security/quickstart#sample-rules
+    https://firebase.google.com/docs/auth/android/password-auth
+ */
 
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -57,9 +61,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //Register to MemoryGame App
     private void createAccount(final String email, final String password){
         System.out.println("Entering createAccount method");
-        if(email.isEmpty() || password.isEmpty()){
+        if(email.isEmpty() || password.isEmpty()){ //if field is not completed notify user
             Toast.makeText(MainActivity.this, "All fields are required to be completed",
                     Toast.LENGTH_SHORT).show();
             return;
@@ -72,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("EmailPassword", "createUserWithEmail:success");
                             mAuth.getCurrentUser();
-                            startActivity(new Intent(MainActivity.this, easyActivity.class)); //change this to homeActivity
+                            startActivity(new Intent(MainActivity.this, HomePage.class));
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("EmailPassword", "createUserWithEmail:failure", task.getException());
@@ -85,8 +90,9 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
+    //Sign in to MemoryGame App
     private void signIn(String email, String password){
-        if(email.isEmpty() || password.isEmpty()){
+        if(email.isEmpty() || password.isEmpty()){ //if field is not completed toast a message
             Toast.makeText(MainActivity.this, "All fields are required to be completed",
                     Toast.LENGTH_SHORT).show();
             return;
@@ -99,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("EmailPassword", "signInWithEmail:success");
                             mAuth.getCurrentUser();
-                            startActivity(new Intent(MainActivity.this, intermediateLevel.class));
+                            startActivity(new Intent(MainActivity.this, HomePage.class));
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("EmailPassword", "signInWithEmail:failure", task.getException());
@@ -117,6 +123,7 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
+    //Register Button, calls createAccountMethod
     public void createButton(View view){
         Button createButton = (Button) findViewById(R.id.create);
         createButton.setOnClickListener(new View.OnClickListener() {
@@ -128,6 +135,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    //Sign in button, calls signIn method
     public void signInButton(View view){
         Button signInButton = (Button) findViewById(R.id.signIn);
         signInButton.setOnClickListener(new OnClickListener() {
@@ -138,16 +146,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
-    public void easyLevel(View view){
-        startActivity(new Intent(this, easyActivity.class));
-    }
-
-    public void intermediateLevel(View view){ startActivity(new Intent(this, intermediateLevel.class)); }
-
-    public void difficultLevel(View view){
-        startActivity(new Intent(this, difficultLevel.class));
-    }
-
+    //To be completed
+//    public void signOutButton(View view){
+//        mAuth.signOut();
+//    }
 
 }

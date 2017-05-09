@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -21,6 +23,7 @@ import java.io.InputStreamReader;
 
 public class intermediateLevel extends Activity{
     private MemoryGame wordContainer;
+    private FirebaseAuth mAuth;
     String wordToMemorize = "";
 
     @Override
@@ -104,6 +107,6 @@ public class intermediateLevel extends Activity{
 
     //go back to home page
     public void home(View view){
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, HomePage.class));
     }
 }

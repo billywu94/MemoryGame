@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -101,6 +103,6 @@ public class easyActivity extends Activity{
 
     //back to homepage
     public void home(View view){
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, HomePage.class));
     }
 }

@@ -104,6 +104,6 @@ public class difficultLevel extends Activity {
 
     //back to home
     public void home(View view){
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, HomePage.class));
     }
 }

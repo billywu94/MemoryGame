@@ -62,9 +62,7 @@
         app:layout_constraintRight_toRightOf="@+id/textView2"
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="@+id/editText2"
-        tools:layout_editor_absoluteY="224dp"
-        app:layout_constraintHorizontal_bias="0.0"
-        android:layout_marginBottom="0dp" />
+        app:layout_constraintHorizontal_bias="0.0" />
 
     <Button
         android:id="@+id/submitIntermediate"
