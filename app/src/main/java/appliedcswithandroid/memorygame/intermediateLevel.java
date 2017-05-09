@@ -59,7 +59,7 @@ public class intermediateLevel extends Activity{
             public void run() {
                 textView.setVisibility(View.INVISIBLE);
             }
-        }, 4000); //set visibility for 3 seconds
+        }, 4000); //set visibility for 4 seconds
 
 
     }
@@ -80,11 +80,11 @@ public class intermediateLevel extends Activity{
         if(wordToMemorize.equals(userInput)){
             button.setEnabled(false);
             setActivityBackgroundColor(Color.GREEN);
-            Toast.makeText(this,"Congratulations, you got the word correct!!!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Well Done!!", Toast.LENGTH_SHORT).show();
         }else{
             button.setEnabled(false);
             setActivityBackgroundColor(Color.RED);
-            Toast.makeText(this,"Sorry, the word you entered was incorrect.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Sorry, the word(s) you entered was incorrect.", Toast.LENGTH_SHORT).show();
         }
 
     }

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "387386875400",
+    "firebase_url": "https://memorygame-e4d38.firebaseio.com",
+    "project_id": "memorygame-e4d38",
+    "storage_bucket": "memorygame-e4d38.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:387386875400:android:36db79c4155b0f7e",
+        "android_client_info": {
+          "package_name": "appliedcswithandroid.memorygame"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "387386875400-ssc0e8kidreckkktsqgokuqmkh2j11hg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "appliedcswithandroid.memorygame",
+            "certificate_hash": "0527150229cefdfe0addaabadc38a32eaa542c26"
+          }
+        },
+        {
+          "client_id": "387386875400-73r1dodl8s5uprnl1p2f1jcn45p6r6fl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD39PceB9ScfpqiiPPyrkf_wwqJGg3dkyM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "387386875400-73r1dodl8s5uprnl1p2f1jcn45p6r6fl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
