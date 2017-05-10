@@ -30,7 +30,7 @@ public class difficultLevel extends Activity {
         setContentView(R.layout.difficult_activity);
         AssetManager assetManager = getAssets();
         try {
-            InputStream inputStream = assetManager.open("words.txt");
+            InputStream inputStream = assetManager.open("words.txt"); //load words.txt file
             wordContainer = new MemoryGame(new InputStreamReader(inputStream));
         } catch (IOException e){
             Toast toast = Toast.makeText(this, "Could not load file", Toast.LENGTH_LONG);
@@ -41,7 +41,7 @@ public class difficultLevel extends Activity {
     @Override
     protected void onStart(){
         super.onStart();
-        randomWordToMemorize();
+        randomWordToMemorize(); //randomly selects 3 words from the arrayList displays for 5 seconds
     }
 
     public void randomWordToMemorize(){
@@ -70,6 +70,7 @@ public class difficultLevel extends Activity {
         view.setBackgroundColor(color);
     }
 
+    //check if the words the user enters matches to the one shown on the screen
     public void checkWord(View view){
         Button button = (Button) findViewById(R.id.submitDifficult);
         EditText editText = (EditText) findViewById(R.id.editText3);
@@ -89,11 +90,13 @@ public class difficultLevel extends Activity {
     }
 
 
+    //method for onClick
+    //resets background color, chooses new random words, enables any disabled buttons
     public void nextWord(View view){
         setActivityBackgroundColor(Color.parseColor("#EEEEEE"));
         TextView textView = (TextView) findViewById(R.id.textView3);
         textView.setVisibility(View.VISIBLE);
-        randomWordToMemorize();
+        randomWordToMemorize(); //selects new random words here
         EditText editText = (EditText) findViewById(R.id.editText3);
         editText.setText("");
         editText.setFocusableInTouchMode(true);

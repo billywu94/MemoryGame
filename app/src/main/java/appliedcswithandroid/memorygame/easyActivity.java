@@ -79,7 +79,7 @@ public class easyActivity extends Activity{
         if(wordToMemorize.equals(userInput)){
             button.setEnabled(false);
             setActivityBackgroundColor(Color.GREEN);
-            Toast.makeText(this,"Congratulations, you got the word correct!!!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Well Done!!", Toast.LENGTH_SHORT).show();
         }else{
             button.setEnabled(false);
             setActivityBackgroundColor(Color.RED);

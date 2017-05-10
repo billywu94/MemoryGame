@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
+                            // Sign in success, update UI with the homepage
                             Log.d("EmailPassword", "createUserWithEmail:success");
                             mAuth.getCurrentUser();
                             startActivity(new Intent(MainActivity.this, HomePage.class));
@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
-    //Sign in to MemoryGame App
+    //Sign in existing user to MemoryGame App
     private void signIn(String email, String password){
         if(email.isEmpty() || password.isEmpty()){ //if field is not completed toast a message
             Toast.makeText(MainActivity.this, "All fields are required to be completed",
@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
+                            // Sign in success, update UI with the homepage
                             Log.d("EmailPassword", "signInWithEmail:success");
                             mAuth.getCurrentUser();
                             startActivity(new Intent(MainActivity.this, HomePage.class));
@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                createAccount(emailField.getText().toString(), passwordField.getText().toString());
+                createAccount(emailField.getText().toString(), passwordField.getText().toString()); //createAccount method takes in user email and password
                 System.out.println("User entered: " + emailField.getText().toString() + " " + passwordField.getText().toString());
             }
         });
@@ -141,14 +141,9 @@ public class MainActivity extends AppCompatActivity {
         signInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                signIn(emailField.getText().toString(),passwordField.getText().toString());
+                signIn(emailField.getText().toString(),passwordField.getText().toString()); //signIn method takes in user email and password
             }
         });
     }
-
-    //To be completed
-//    public void signOutButton(View view){
-//        mAuth.signOut();
-//    }
 
 }
