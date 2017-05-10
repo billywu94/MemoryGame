@@ -24,7 +24,6 @@ import java.io.InputStreamReader;
 public class intermediateLevel extends Activity{
     private MemoryGame wordContainer;
     String wordToMemorize = "";
-    int score = 0;
 
 
     @Override
@@ -84,7 +83,6 @@ public class intermediateLevel extends Activity{
         if(wordToMemorize.equals(userInput)){
             button.setEnabled(false);
             setActivityBackgroundColor(Color.GREEN);
-            score += 2;
             Toast.makeText(this,"Well Done!!", Toast.LENGTH_SHORT).show();
         }else{
             button.setEnabled(false);
@@ -105,10 +103,6 @@ public class intermediateLevel extends Activity{
         Button button = (Button) findViewById(R.id.submitIntermediate);
         button.setEnabled(true);
 
-    }
-
-    public int getScore(){
-        return score;
     }
 
     //go back to home page

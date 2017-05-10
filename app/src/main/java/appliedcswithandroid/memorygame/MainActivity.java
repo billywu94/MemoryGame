@@ -37,8 +37,6 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener mAuthListener;
     private EditText emailField;
     private EditText passwordField;
-    private DatabaseReference database;
-    private FirebaseUser firebaseUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,10 +46,6 @@ public class MainActivity extends AppCompatActivity {
         passwordField = (EditText) findViewById(R.id.password);
 
         mAuth = FirebaseAuth.getInstance();
-
-        database = FirebaseDatabase.getInstance().getReference("Score");
-        //database.child("message").child(firebaseUser.getUid()).setValue("Inserting into db");
-        database.setValue("inserting into database");
 
     }
 

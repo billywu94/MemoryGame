@@ -22,7 +22,6 @@ import java.io.InputStreamReader;
 public class difficultLevel extends Activity {
     private MemoryGame wordContainer;
     String wordToMemorize = "";
-    int score = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -81,7 +80,6 @@ public class difficultLevel extends Activity {
         if(wordToMemorize.equals(userInput)){
             button.setEnabled(false);
             setActivityBackgroundColor(Color.GREEN);
-            score += 3;
             Toast.makeText(this,"Well Done!!", Toast.LENGTH_SHORT).show();
         }else{
             button.setEnabled(false);
@@ -105,10 +103,6 @@ public class difficultLevel extends Activity {
         Button button = (Button) findViewById(R.id.submitDifficult);
         button.setEnabled(true);
 
-    }
-
-    public int getScore(){
-        return score;
     }
 
     //back to home

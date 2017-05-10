@@ -18,9 +18,6 @@ import com.google.firebase.database.FirebaseDatabase;
  */
 
 public class HomePage extends Activity {
-    easyActivity scoreEasy = new easyActivity();
-    intermediateLevel scoreIntermediate = new intermediateLevel();
-    difficultLevel scoreDifficult = new difficultLevel();
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -30,10 +27,7 @@ public class HomePage extends Activity {
     }
 
     public void signOut(View view){
-       int totalScore = 0;
        FirebaseAuth.getInstance().signOut();  //sign out user
-       totalScore = scoreEasy.getScoreEasy() + scoreIntermediate.getScore() + scoreDifficult.getScore(); //add up the score
-       Toast.makeText(this, "This is your total score: " + totalScore, Toast.LENGTH_SHORT).show();
        startActivity(new Intent(this, MainActivity.class)); //redirect to login screen
     }
 
