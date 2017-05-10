@@ -19,6 +19,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -35,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener mAuthListener;
     private EditText emailField;
     private EditText passwordField;
+    private DatabaseReference database;
+    private FirebaseUser firebaseUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,12 +49,18 @@ public class MainActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
+        database = FirebaseDatabase.getInstance().getReference("Score");
+        //database.child("message").child(firebaseUser.getUid()).setValue("Inserting into db");
+        database.setValue("inserting into database");
+
     }
+
 
     @Override
     public void onStart() {
         super.onStart();
         mAuth.getCurrentUser();
+
     }
 
     @Override

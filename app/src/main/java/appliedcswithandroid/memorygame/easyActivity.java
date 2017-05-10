@@ -12,6 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -25,6 +27,8 @@ import java.io.InputStreamReader;
 public class easyActivity extends Activity{
     private MemoryGame wordContainer;
     String wordToMemorize = "";
+    int scoreE = 0;
+    String scoreConversion = "";
 
 
     @Override
@@ -73,12 +77,17 @@ public class easyActivity extends Activity{
     public void checkWord(View view){
         Button button = (Button) findViewById(R.id.button6);
         EditText editText = (EditText) findViewById(R.id.editText1);
+        TextView scoreStatus = (TextView) findViewById(R.id.scoreStatusEasy);
         editText.setFocusable(false); //source: http://stackoverflow.com/questions/4297763/disabling-of-edittext-in-android
         String userInput = editText.getText().toString();
         System.out.println("This is the user input: " + userInput);
         if(wordToMemorize.equals(userInput)){
             button.setEnabled(false);
             setActivityBackgroundColor(Color.GREEN);
+            scoreE += 1;
+            scoreConversion = Integer.toString(scoreE);
+            scoreStatus.setText(scoreConversion);
+            System.out.println("This is the score for easy level: " + scoreConversion);
             Toast.makeText(this,"Well Done!!", Toast.LENGTH_SHORT).show();
         }else{
             button.setEnabled(false);
@@ -99,6 +108,14 @@ public class easyActivity extends Activity{
         Button button = (Button) findViewById(R.id.button6);
         button.setEnabled(true);
 
+    }
+
+    public int getScoreEasy(){
+        TextView getUserScore = (TextView) findViewById(R.id.scoreStatusEasy);
+        String userScore = getUserScore.getText().toString();
+        int score = Integer.parseInt(userScore);
+        System.out.println("get method being called: " + score);
+        return score;
     }
 
     //back to homepage
